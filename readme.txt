@@ -1,13 +1,13 @@
+Cross platform SDL
+----------------------------
+
 This is an attempt to make a cross platform SDL repo full of examples.
 The windows builds use batch files and 
 
-Building
------------
 
-run make.bat
+executables go into the build_win64 directory with the DLLs
 
-executables go into the build_win64 directory
-
+gotta run vcvarsall.bat before visual studio will work on the command line 
 
 
 Visual studio on the command line 
