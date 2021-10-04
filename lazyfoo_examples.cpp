@@ -190,7 +190,8 @@ int scale_an_image_and_optimise_it_for_faster_blitting( int argc, char* args[] )
 
         if (gotta_update) {
             SDL_FillRect( window_surface, NULL, SDL_MapRGB( window_surface->format, 0x00, 0x00, 0x00 ) );
-            SDL_Rect window_size = { .x = 0, .y = 0, .w = WINDOW_WIDTH, .h = WINDOW_HEIGHT };
+            SDL_Rect window_size;
+            window_size.x = 0; window_size.y = 0; window_size.w = WINDOW_WIDTH; window_size.h = WINDOW_HEIGHT;
             SDL_BlitScaled( image_surfaces[image_index], NULL, window_surface, &window_size );
             SDL_BlitSurface( image_surfaces[image_index], NULL, window_surface, 0 );
             SDL_UpdateWindowSurface( window );
@@ -226,7 +227,8 @@ int lets_load_a_png( int argc, char* args[] )
         if ( event.type == SDL_QUIT ) running = 0;
 
         SDL_FillRect( window, NULL, SDL_MapRGB( window->format, 0x00, 0x00, 0x00 ) );
-        SDL_Rect window_size = { .x = 0, .y = 0, .w = WINDOW_WIDTH, .h = WINDOW_HEIGHT };
+        SDL_Rect window_size;
+        window_size.x = 0; window_size.y = 0; window_size.w = WINDOW_WIDTH; window_size.h = WINDOW_HEIGHT;
         SDL_BlitScaled( image, NULL, window, &window_size );
         SDL_UpdateWindowSurface( window_object );
 

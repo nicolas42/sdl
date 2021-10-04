@@ -1,1 +1,8 @@
 *.exe
+
+*.manifest
+*.ilk
+*.obj
+*.pdf
+*.idb
+*.pdb 

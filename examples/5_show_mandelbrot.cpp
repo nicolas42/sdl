@@ -14,15 +14,15 @@ g++ 5_show_mandelbrot.cpp -lSDL2 && ./a.out
 // from https://stackoverflow.com/questions/33304351/sdl2-fast-pixel-manipulation
 */
 
-#include <SDL2/SDL.h>        
 #include <iostream>
 #include <iomanip>
 #include <vector>
 #include <cstring>
 
-
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "SDL.h"
 
 
 float hue2rgb(float p, float q, float t) {

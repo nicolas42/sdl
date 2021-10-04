@@ -4,11 +4,12 @@ clang++ -framework SDL2 -framework SDL2_image -framework SDL2_mixer -framework S
 from https://stackoverflow.com/questions/33304351/sdl2-fast-pixel-manipulation
 */
 
-#include <SDL.h>
 #include <iostream>
 #include <iomanip>
 #include <vector>
 #include <cstring>
+
+#include "SDL.h"
 
 int main( int argc, char** argv )
 {

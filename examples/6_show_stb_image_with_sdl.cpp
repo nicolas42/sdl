@@ -4,11 +4,12 @@ g++ test.cpp -framework SDL2
 Get window window_surface then get the pixels array from that and then draw stuff on it.
 */
 
-#include <SDL2/SDL.h>        
 #include <iostream>
 #include <iomanip>
 #include <vector>
 #include <cstring>
+
+#include "SDL.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -70,8 +71,6 @@ void draw_mandelbrot_in_black_and_white(int w, int h, int c, char **ret_image)
 int main(int argc, char ** argv)
 {
     int w = 800, h = 800, c = 4;
-    // unsigned char *stbi_loaded_image = stbi_load("texture.png", &w, &h, &c, 4);
-    // for (int i=0; i<w*h*c; i++) window_surface_pixels[i] = stbi_loaded_image[i];
 
     SDL_Init(SDL_INIT_VIDEO);
     SDL_Window *window = SDL_CreateWindow("SDL2 Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w, h, 0);
@@ -79,8 +78,15 @@ int main(int argc, char ** argv)
 
 
     SDL_LockSurface(window_surface);
+
     char *window_surface_pixels = (char*)(window_surface->pixels);
-    draw_mandelbrot_in_black_and_white(w,h,c, &window_surface_pixels);
+
+    unsigned char *stbi_loaded_image = stbi_load("../data/texture.png", &w, &h, &c, 4);
+    for (int i=0; i<w*h*c; i++) {
+        window_surface_pixels[i] = stbi_loaded_image[i];
+    }
+
+    // draw_mandelbrot_in_black_and_white(w,h,c, &window_surface_pixels);
     SDL_UnlockSurface(window_surface);
     SDL_UpdateWindowSurface(window);
 
